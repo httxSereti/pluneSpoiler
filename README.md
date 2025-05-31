@@ -1,3 +1,3 @@
-# pluneSpoiler
+# PluneSpoiler
 
-Forbid being able to click on spoiled content (text, images, etc...)
+Enhance your Spoilers experience using Spoiler Plugin by @PluneCorp
