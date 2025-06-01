@@ -67,18 +67,6 @@ export default definePlugin({
      * @returns boolean
      */
     handleReveal(_this: any, _event: MouseEvent): boolean {
-        // Tracker configured and enabled?
-        if (settings.store.enableTracking && settings.store.trackerChannelId !== "" && settings.store.trackerMessageToSend !== "") {
-            try {
-                sendMessage(
-                    settings.store.trackerChannelId,
-                    { content: settings.store.trackerMessageToSend },
-                    false,
-                )
-                showToast("Successfully notified your action.", Toasts.Type.SUCCESS);
-            } catch { }
-        }
-
         // Allow to reveal spoiler (mode is disabled)
         if (settings.store.mode == Mode.Never) {
             return true;
@@ -105,6 +93,18 @@ export default definePlugin({
             });
         } catch { }
         
+        // Tracker configured and enabled?
+        if (settings.store.enableTracking && settings.store.trackerChannelId !== "" && settings.store.trackerMessageToSend !== "") {
+            try {
+                sendMessage(
+                    settings.store.trackerChannelId,
+                    { content: settings.store.trackerMessageToSend },
+                    false,
+                )
+                showToast("Successfully notified your action.", Toasts.Type.SUCCESS);
+            } catch { }
+        }
+
         return false;
     }
 });
